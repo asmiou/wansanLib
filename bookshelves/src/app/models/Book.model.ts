@@ -1,0 +1,4 @@
+export default class Book {
+  photo: string;
+  constructor(public titre: string, public author: string) {}
+}
