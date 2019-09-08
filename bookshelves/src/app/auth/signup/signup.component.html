@@ -16,6 +16,10 @@
                                 <input class="form-control" placeholder="Password" name="password" type="password"
                                     value="" formControlName="password">
                             </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Confirm password" name="confirm"
+                                    type="password" value="" formControlName="confirm">
+                            </div>
                             <button class="btn btn-lg btn-primary btn-md" type="submit" value="Login"
                                 [disabled]="signUpForm.invalid">
                                 S'inscrire</button>
@@ -23,6 +27,10 @@
                     </form>
                 </div>
                 <p class="text-danger p-3">{{errorMessage}}</p>
+                <div class="d-flex justify-content-between p-2">
+                    <button class="btn btn-sm btn-outline-dark" routerLink="/auth/signin" routerLinkActive="active">
+                        < Se connecter </button> <a></a>
+                </div>
             </div>
         </div>
     </div>

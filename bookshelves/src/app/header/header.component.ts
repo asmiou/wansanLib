@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     firebase.auth().onAuthStateChanged(
       (user) => {
         (user) ? this.isAuth = true : this.isAuth = false;
+        //console.log(user);
       });
   }
 

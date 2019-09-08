@@ -1,4 +1,9 @@
 export default class Book {
-  photo: string;
-  constructor(public titre: string, public author: string) {}
+  constructor(public title: string, public author: string, public synopsis: string) { }
+  imageLink: string;
+  country: string;
+  language: string;
+  link: string;
+  pages: number;
+  year: number;
 }

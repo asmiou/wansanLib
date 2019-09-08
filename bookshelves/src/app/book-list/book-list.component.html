@@ -1,1 +1,49 @@
-<p>book-list works!</p>
+<div class="container">
+    <div class="breadcrumb d-flex justify-content-between mb-3 mt-2">
+        <h3 class="">Nos livres</h3>
+        <a class="" (click)="onNewBook()" style="cursor: pointer">
+            <h5>Nouveau livre</h5>
+        </a>
+        <div>
+            <input type="text" class="form-control" placeholder="Rechercher" id="search" name="search"
+                [(ngModel)]="search" (input)="onChangeSearch()">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 d-flex justify-content-between" *ngFor="let book of books ; let i = index">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <span class="font-weight-bold" (click)="onViewBook(i)"> {{book.title}}</span>
+                        <button class="btn btn-sm btn-outline-danger" (click)="onDeleteBook(book)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title"> {{book.author}} </h6>
+                        <h6 class="card-subtitle text-muted small">{{book.language}}</h6>
+                        <img src="{{book.imageLink}}" alt="Card image" (click)="onViewBook(i)">
+                        <div class="card-body">
+                            <span class="badge badge-dark">Pages: {{book.pages}}</span>&nbsp;
+                            <span class="badge badge-dark">Country: {{book.country}}</span>&nbsp;
+                            <span class="badge badge-dark">Year: {{book.year}}</span>&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="">
+                    <div class="card-body">
+                        <h5 class="card-title">Synopsis</h5>
+                        <p class="card-text lead">
+                            {{book.synopsis|slice:0:1000}}...
+                        </p>
+                        <a href="{{book.link}}" target="_blank" class="btn btn-outline-dark m-3">Go wikipédia</a>
+                        <a href="" class="btn btn-dark m-3"><i class="fa fa-cart-plus"></i> Emprunter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

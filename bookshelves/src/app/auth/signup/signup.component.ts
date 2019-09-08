@@ -21,19 +21,26 @@ export class SignupComponent implements OnInit {
   initForm() {
     this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{8,}/)]]
+      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{8,}/)]],
+      confirm: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{8,}/)]],
     });
   }
 
   onSubmit() {
     const email = this.signUpForm.get('email').value;
     const password = this.signUpForm.get('password').value;
-    this.authService.registration(email, password)
-      .then(() => {
-        this.router.navigate(['/books']);
-      }, (error) => {
-        this.errorMessage = error;
-      });
+    const confirm = this.signUpForm.get('confirm').value;
+    if (confirm === password) {
+      this.authService.registration(email, password)
+        .then(() => {
+          this.router.navigate(['/books']);
+        }, (error) => {
+          this.errorMessage = error;
+        });
+    } else {
+      this.errorMessage = "Error: Your password does not match";
+    }
+
   }
 
 

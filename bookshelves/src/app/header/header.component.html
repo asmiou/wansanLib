@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Book Helves</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isAuth">
+  <a class="navbar-brand" href="#"> <i class="fa fa-book"></i> Bibliothèque Wansan</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor"
     aria-controls="navbarColor" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,20 +10,26 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="books">Livres</a>
       </li>
+      <li class="nav-item disabled" routerLinkActive="active">
+        <a class="nav-link" routerLink="">Emprunts</a>
+      </li>
+      <li class="nav-item disabled" routerLinkActive="active">
+        <a class="nav-link" routerLink="">Lecteurs</a>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <!--<form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>-->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" routerLink="auth/signup" routerLinkActive="active" *ngIf="!isAuth">Inscription</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" routerLink="auth/signin" routerLinkActive="active" *ngIf="!isAuth">Connexion</a>
-      </li>
+      </li> -->
       <li>
-        <button class="btn btn-sm btn-dark text-white" type="button" (click)="onSignOut()" *ngIf="isAuth">
+        <button class="btn btn-secondary my-2 my-sm-0" type="button" (click)="onSignOut()" *ngIf="isAuth">
           Déconnexion
         </button>
       </li>

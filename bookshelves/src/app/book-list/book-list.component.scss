@@ -1,0 +1,22 @@
+img {
+    height: 200px; 
+    width: 100%; 
+    display: block;
+}
+
+.card-body img{
+    cursor:pointer;
+}
+
+.card-header{
+    cursor: pointer;
+}
+
+.breadcrumb a{
+    text-decoration: none;
+}
+
+.breadcrumb a:hover{
+    text-decoration: none;
+}
+

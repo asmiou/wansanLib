@@ -1,1 +1,83 @@
-<p>book-form works!</p>
+<div class="row">
+    <div class="container mt-3">
+        <h2>Enregistrer un nouveau livre</h2>
+        <form [formGroup]="bookForm" (ngSubmit)="onSaveBook()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title">Titre*</label>
+                                <input type="text" id="title" class="form-control" formControlName="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Auteur*</label>
+                                <input type="text" id="author" class="form-control" formControlName="author">
+                            </div>
+                            <div class="form-group">
+                                <label for="synopsis">Synopsis*</label>
+                                <textarea id="synopsis" class="form-control" formControlName="synopsis"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <h4>Ajouter une photo</h4>
+                                <input type="file" (change)="detectFiles($event)" class="form-control" accept="image/*">
+                                <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!--<div>
+                                <img [src]="{{book.imageLink}}">
+                            </div>-->
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="pages">Pages</label>
+                                        <input type="text" id="pages" class="form-control" formControlName="pages">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="laguage">Langue</label>
+                                        <input type="text" id="laguage" class="form-control" formControlName="language">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <input type="text" id="country" class="form-control" formControlName="country">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="year">Year</label>
+                                        <input type="text" id="year" class="form-control" formControlName="year">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group">
+                                    <label for="link">Link</label>
+                                    <input type="text" id="link" class="form-control" formControlName="link">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="jumbotron d-flex justify-content-between m-3">
+                <button class="btn btn-outline-dark" tabindex="-1">
+                    < Retour à la liste </button> <button class="btn btn-success"
+                        [disabled]="bookForm.invalid || fileIsUploading" type="submit">
+                        Enregistrer
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
